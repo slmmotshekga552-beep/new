@@ -29,13 +29,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
         run: npm install
 
       - name: Build website
         run: npm run build
+
+      - name: Show website files
+        run: find .output/public -maxdepth 3 -type f
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
